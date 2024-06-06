@@ -1,0 +1,39 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Login</title>  
+</head>  
+<body>  
+    <h1>Login</h1>  
+    <input type="text" id="loginUsername" placeholder="Username">  
+    <input type="password" id="loginPassword" placeholder="Password">  
+    <button onclick="login()">Login</button>  
+    <a href="register.html">Back to Register</a>  
+  
+    <script>  
+        function login() {  
+            const loginUsername = document.getElementById('loginUsername').value;  
+            const loginPassword = document.getElementById('loginPassword').value;  
+            const cookies = document.cookie.split('; ');  
+            let isLoggedIn = false;  
+            for (let cookie of cookies) {  
+                const [key, value] = cookie.split('=');  
+                if (key === 'user') {  
+                    const [storedUsername, storedPassword] = value.split(':');  
+                    if (loginUsername === storedUsername && loginPassword === storedPassword) {  
+                        isLoggedIn = true;  
+                        break;  
+                    }  
+                }  
+            }  
+            if (isLoggedIn) {  
+                window.location.href = 'aba.html';  
+            } else {  
+                alert('Invalid username or password');  
+            }  
+        }  
+    </script>  
+</body>  
+</html>

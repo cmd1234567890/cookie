@@ -1,0 +1,34 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Register</title>  
+    <script>  
+        function createCookie() {  
+            const username = document.getElementById('username').value;  
+            const password = document.getElementById('password').value;  
+            if (username && password) {  
+                document.cookie = `username=${username};password=${password}`;  
+                alert('Cookie created!');  
+                window.location.href = 'login.html';  
+            } else {  
+                alert('Please fill in both username and password!');  
+            }  
+        }  
+  
+        function deleteCookie() {  
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";  
+            document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";  
+            alert('Cookies deleted!');  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Register</h1>  
+    <input type="text" id="username" placeholder="Username">  
+    <input type="password" id="password" placeholder="Password">  
+    <button onclick="createCookie()">Create</button>  
+    <button onclick="deleteCookie()">Delete Cookies</button>  
+</body>  
+</html>
